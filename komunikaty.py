@@ -1,6 +1,9 @@
 def printt(lista):
     for i in lista:
         print(i)
+def printtt(lista):
+    for i in lista:
+        print('{:<s}\t{:<.7f}\t{:<.7f}\t{:<.7f}\t{:<.7f}\t{:<.7f}'.format(i.nr, i.x, i.y, i.mx, i.my, i.mp))
 
 def disp(lista):
     i= ['Nr', 'Xzer', 'Yzer', 'mp zer[mm]', 'X akt', 'Y akt', 'mp akt[mm]', 'dx [mm]', 'dy [mm]', 'dl[mm]', 'ml', 'q']
