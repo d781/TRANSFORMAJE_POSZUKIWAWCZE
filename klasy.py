@@ -74,7 +74,7 @@ class transform():
             self.m0 =np.sqrt(((v.T @ v) / ((len(self.P) * 2) - 4))) * 1000
         self.covX = (self.m0 ** 2) * np.linalg.inv(A.T @ A)
         self.covO = A @ self.covX @ A.T
-        self.teta = np.arctan(self.b / self.a)
+        self.teta = f.azymut(self.a, self.b)
         self.skala = np.sqrt(self.a ** 2 + self.b **2)
 
 
@@ -93,10 +93,7 @@ class transform():
             dx = (X - x) * 1000
             dy = (Y - y) * 1000
             dl = np.sqrt(dx ** 2 + dy ** 2)
-            if len(self.P) < 3:
-                q = np.abs(dl) / MP
-            else:
-                q = q = np.abs(dl) / self.m0
+            q = np.abs(dl) / MP
             tmp = Point(nr=i.nr, x=x, y=y, X=X, Y=Y)
             tmp.MP = MP
             tmp.dx = dx
